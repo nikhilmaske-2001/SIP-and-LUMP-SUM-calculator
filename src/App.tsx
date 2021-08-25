@@ -1,4 +1,4 @@
-import { FormControl, FormHelperText, InputLabel, Input } from '@material-ui/core';
+import { FormControl, InputLabel, Input, Card, CardContent, Box } from '@material-ui/core';
 import React from 'react';
 import './App.css';
 import { useStyles } from "./styles";
@@ -7,20 +7,26 @@ function App() {
   const classes = useStyles();
   return (
     <div className={classes.Container}>
-      <FormControl className={classes.Box}>
-        <InputLabel htmlFor="my-input">Montly Investment Amount (Rs)</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
-      </FormControl>
+      <Card className={classes.root} variant="outlined">
+        <CardContent>
+          <FormControl className={classes.Box}>
+            <InputLabel htmlFor="my-input">Montly Investment Amount (Rs)</InputLabel>
+            <Input id="my-input" aria-describedby="my-helper-text" />
+          </FormControl>
 
-      <FormControl className={classes.Box}>
-        <InputLabel htmlFor="my-input">Investment Period (years)</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
-      </FormControl>
+          <FormControl className={classes.Box}>
+            <InputLabel htmlFor="my-input">Investment Period (years)</InputLabel>
+            <Input id="my-input" aria-describedby="my-helper-text" />
+          </FormControl>
 
-      <FormControl className={classes.Box}>
-        <InputLabel htmlFor="my-input">Expected Return (%)</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
-      </FormControl>
+          <FormControl className={classes.Box}>
+            <InputLabel htmlFor="my-input">Expected Return (%)</InputLabel>
+            <Input id="my-input" aria-describedby="my-helper-text" />
+          </FormControl>
+
+          <Box>Total: </Box>
+        </CardContent>
+      </Card>
     </div >
   );
 }
