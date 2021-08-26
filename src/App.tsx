@@ -1,6 +1,5 @@
-import { FormControl, InputLabel, Input, Card, CardContent, Box } from '@material-ui/core';
 import React from 'react';
-import './App.css';
+import { FormControl, InputLabel, Input, Card, CardContent, Box } from '@material-ui/core';
 import { useStyles } from "./styles";
 
 function App() {
