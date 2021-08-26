@@ -4,14 +4,17 @@ export const useStyles = makeStyles(theme => ({
     Container: {
         display: "flex",
         justifyContent: "center",
-        paddingTop: 100,
+        paddingTop: 95,
     },
     root: {
-        minWidth: 275,
-        maxWidth: 550,
+        minWidth: 550,
+        minHeight: 550,
     },
     Box: {
         display: "flex",
         marginBottom: 20,
+    },
+    Total: {
+        marginTop: 40,
     }
 }));

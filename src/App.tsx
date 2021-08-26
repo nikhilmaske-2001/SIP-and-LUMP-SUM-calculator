@@ -24,7 +24,7 @@ function App() {
             <Input id="my-input" aria-describedby="my-helper-text" />
           </FormControl>
 
-          <Box>Total: </Box>
+          <Box className={classes.Total}>Total: </Box>
         </CardContent>
       </Card>
     </div >
