@@ -27,10 +27,12 @@ function App() {
         total = total + monthly_investment;
         investment_amount = investment_amount + monthly_investment;
       }
-      var one_year_return = (total / 100) * expected_return;
-      total = total + one_year_return;
+      var one_year_return = Math.round((total / 100) * expected_return);
+      total = Math.round(total + one_year_return);
     }
-    setInvestedAmount(Math.round(investment_amount));
+    investment_amount = Math.round(investment_amount);
+    total = Math.round(total);
+    setInvestedAmount(investment_amount);
     setTotalAmount(total);
   };
 
