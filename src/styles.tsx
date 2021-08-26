@@ -7,7 +7,7 @@ export const useStyles = makeStyles(theme => ({
         paddingTop: 95,
     },
     root: {
-        minWidth: 550,
+        minWidth: 350,
         minHeight: 550,
     },
     Box: {
