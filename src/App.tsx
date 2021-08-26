@@ -57,8 +57,8 @@ function App() {
 
           <Button className={classes.Button} variant="outlined" color="primary" fullWidth
             onClick={calculateTotal}> Calculate </Button>
-          <Box className={classes.Total}>Total: {totalAmount} <br />
-            Invested Amount : {investedAmount}</Box>
+          <Box className={classes.Total}>Total: ₹ {totalAmount} <br />
+            Invested Amount : ₹ {investedAmount}</Box>
         </CardContent>
       </Card>
     </div >
