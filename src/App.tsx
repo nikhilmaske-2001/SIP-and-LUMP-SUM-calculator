@@ -12,11 +12,13 @@ function App() {
   const classes = useStyles();
 
   const [formData, setFormData] = useState(initialState);
-  const [totalAmount, setTotalAmount] = useState("");
+  const [totalAmount, setTotalAmount] = useState(0);
 
   const calculateTotal = () => {
-    console.log(formData);
-    setTotalAmount(formData.monthly_investment);
+    var MI: number = +formData.monthly_investment;
+    var per: number = +formData.period;
+    var ret: number = +formData.return;
+    setTotalAmount(MI + per + ret);
   };
 
   return (
