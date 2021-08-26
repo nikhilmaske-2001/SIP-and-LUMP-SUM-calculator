@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, InputLabel, Input, Card, CardContent, Box } from '@material-ui/core';
+import { FormControl, InputLabel, Input, Card, CardContent, Box, Button } from '@material-ui/core';
 import { useStyles } from "./styles";
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
             <Input id="my-input" aria-describedby="my-helper-text" />
           </FormControl>
 
+          <Button className={classes.Button} variant="outlined" color="primary" fullWidth>Calculate</Button>
           <Box className={classes.Total}>Total: </Box>
         </CardContent>
       </Card>

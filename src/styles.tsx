@@ -14,6 +14,9 @@ export const useStyles = makeStyles(theme => ({
         display: "flex",
         marginBottom: 20,
     },
+    Button: {
+        marginTop: 20,
+    },
     Total: {
         marginTop: 40,
     }
