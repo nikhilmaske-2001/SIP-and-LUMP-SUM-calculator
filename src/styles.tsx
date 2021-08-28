@@ -20,4 +20,8 @@ export const useStyles = makeStyles(theme => ({
     Total: {
         marginTop: 40,
     },
+    piechart: {
+        maxHeight: 200,
+        maxWidth: 200,
+    }
 }));

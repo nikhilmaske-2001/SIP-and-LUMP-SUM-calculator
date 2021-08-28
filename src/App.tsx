@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FormControl, InputLabel, Input, Card, CardContent, Box, Button } from '@material-ui/core';
 import { useStyles } from "./styles";
-import { PieChart } from 'react-minimal-pie-chart';
+import { Doughnut } from "react-chartjs-2";
 
 const initialState = {
   monthly_investment: "",
@@ -37,6 +37,22 @@ function App() {
     setTotalAmount(total);
   };
 
+  const chartData = {
+    // datasets: [{
+    //     data: filteredCategories.map((c) => c.amount),
+    //     backgroundColor: filteredCategories.map((c) => c.color)
+    // }],
+    // labels: filteredCategories.map((c) => c.type)
+    labels: ["a", "b", "c", "d"],
+    datasets: [
+      {
+        data: [300, 50, 100, 50],
+        backgroundColor: "#336699",
+        hoverBackgroundColor: "#336699"
+      }
+    ]
+  };
+
   return (
     <div className={classes.Container}>
       <Card className={classes.root} variant="outlined">
@@ -61,8 +77,8 @@ function App() {
           <Box className={classes.Total}>Total: ₹ {totalAmount} <br />
             Invested Amount : ₹ {investedAmount}</Box>
         </CardContent>
+        <Doughnut className={classes.piechart} data={chartData} />
       </Card>
-
     </div >
   );
 }
