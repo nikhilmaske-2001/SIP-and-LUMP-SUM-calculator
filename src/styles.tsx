@@ -4,7 +4,7 @@ export const useStyles = makeStyles(theme => ({
     Container: {
         display: "flex",
         justifyContent: "center",
-        paddingTop: 95,
+        paddingTop: 65,
     },
     root: {
         minWidth: 350,
@@ -23,5 +23,7 @@ export const useStyles = makeStyles(theme => ({
     piechart: {
         maxWidth: 200,
         maxHeight: 200,
+        margin: 20,
+        paddingLeft: 50,
     }
 }));
