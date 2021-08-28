@@ -23,5 +23,7 @@ export const useStyles = makeStyles(theme => ({
     piechart: {
         maxHeight: 200,
         maxWidth: 200,
+        margin: 20,
+        marginLeft: 70
     }
 }));

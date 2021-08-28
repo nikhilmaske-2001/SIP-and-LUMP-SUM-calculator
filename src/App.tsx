@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FormControl, InputLabel, Input, Card, CardContent, Box, Button } from '@material-ui/core';
 import { useStyles } from "./styles";
 import { Doughnut } from "react-chartjs-2";
+import { chartColors } from './colors/chartColors';
 
 const initialState = {
   monthly_investment: "",
@@ -37,18 +38,27 @@ function App() {
     setTotalAmount(total);
   };
 
+  const options = {
+    legend: {
+      display: false,
+      position: "right"
+    },
+    elements: {
+      arc: {
+        borderWidth: 0
+      }
+    }
+  };
+
   const chartData = {
-    // datasets: [{
-    //     data: filteredCategories.map((c) => c.amount),
-    //     backgroundColor: filteredCategories.map((c) => c.color)
-    // }],
-    // labels: filteredCategories.map((c) => c.type)
-    labels: ["a", "b", "c", "d"],
+    maintainAspectRatio: false,
+    responsive: false,
+    labels: ["Amount Invested", "Wealth Gain"],
     datasets: [
       {
-        data: [300, 50, 100, 50],
-        backgroundColor: "#336699",
-        hoverBackgroundColor: "#336699"
+        data: [100000, 300000],
+        backgroundColor: chartColors,
+        hoverBackgroundColor: chartColors
       }
     ]
   };
@@ -77,7 +87,7 @@ function App() {
           <Box className={classes.Total}>Total: ₹ {totalAmount} <br />
             Invested Amount : ₹ {investedAmount}</Box>
         </CardContent>
-        <Doughnut className={classes.piechart} data={chartData} />
+        <Doughnut className={classes.piechart} data={chartData} options={options} />
       </Card>
     </div >
   );
