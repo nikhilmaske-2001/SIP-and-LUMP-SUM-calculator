@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FormControl, InputLabel, Input, Card, CardContent, Box, Button } from '@material-ui/core';
 import { useStyles } from "./styles";
+import { PieChart } from 'react-minimal-pie-chart';
 
 const initialState = {
   monthly_investment: "",
@@ -61,7 +62,13 @@ function App() {
             Invested Amount : ₹ {investedAmount}</Box>
         </CardContent>
       </Card>
-
+      <PieChart className={classes.piechart}
+        data={[
+          { title: 'One', value: 10, color: '#E38627' },
+          { title: 'Two', value: 15, color: '#C13C37' },
+          { title: 'Three', value: 20, color: '#6A2135' },
+        ]}
+      />
     </div >
   );
 }
