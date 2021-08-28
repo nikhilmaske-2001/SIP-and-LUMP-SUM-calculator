@@ -61,13 +61,6 @@ function App() {
           <Box className={classes.Total}>Total: ₹ {totalAmount} <br />
             Invested Amount : ₹ {investedAmount}</Box>
         </CardContent>
-        <PieChart className={classes.piechart}
-          data={[
-            { title: 'One', value: 10, color: '#E38627' },
-            { title: 'Two', value: 15, color: '#C13C37' },
-            { title: 'Three', value: 20, color: '#6A2135' },
-          ]}
-        />
       </Card>
 
     </div >

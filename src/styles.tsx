@@ -20,10 +20,4 @@ export const useStyles = makeStyles(theme => ({
     Total: {
         marginTop: 40,
     },
-    piechart: {
-        maxWidth: 200,
-        maxHeight: 200,
-        margin: 20,
-        paddingLeft: 50,
-    }
 }));
