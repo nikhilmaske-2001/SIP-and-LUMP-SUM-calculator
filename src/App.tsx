@@ -61,6 +61,7 @@ function App() {
             Invested Amount : ₹ {investedAmount}</Box>
         </CardContent>
       </Card>
+
     </div >
   );
 }
