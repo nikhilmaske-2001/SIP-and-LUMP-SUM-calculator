@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormControl, InputLabel, Input, Card, CardContent, Box, Button } from '@material-ui/core';
+import { FormControl, InputLabel, Input, Card, CardContent, Box, Button, Typography } from '@material-ui/core';
 import { useStyles } from "./styles";
 import { Doughnut } from "react-chartjs-2";
 import { chartColors } from './colors/chartColors';
@@ -88,6 +88,10 @@ function App() {
           <Box className={classes.Total}>Total: ₹ {totalAmount} <br />
             Invested Amount : ₹ {investedAmount}</Box>
         </CardContent>
+        <Card className={classes.summery}>
+          <Typography> Summery </Typography>
+        </Card>
+
         <Doughnut className={classes.piechart} data={chartData} options={options} />
       </Card>
     </div >
