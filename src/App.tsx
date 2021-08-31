@@ -35,6 +35,7 @@ function App() {
     }
     investment_amount = Math.round(investment_amount);
     total = Math.round(total);
+    var wealthGain = total - investment_amount;
     setInvestedAmount(investment_amount);
     setTotalAmount(total);
     setChartData({
@@ -43,7 +44,7 @@ function App() {
       labels: ["Amount Invested", "Wealth Gain"],
       datasets: [
         {
-          data: [investment_amount, total],
+          data: [investment_amount, wealthGain],
           backgroundColor: chartColors,
           hoverBackgroundColor: chartColors
         }
