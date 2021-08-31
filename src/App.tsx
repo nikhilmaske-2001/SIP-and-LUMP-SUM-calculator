@@ -16,6 +16,7 @@ function App() {
   const [formData, setFormData] = useState(initialState);
   const [totalAmount, setTotalAmount] = useState(0);
   const [investedAmount, setInvestedAmount] = useState(0);
+  const [chartData, setChartData] = useState({});
 
   const calculateTotal = () => {
     var monthly_investment: number = +formData.monthly_investment;
@@ -36,6 +37,18 @@ function App() {
     total = Math.round(total);
     setInvestedAmount(investment_amount);
     setTotalAmount(total);
+    setChartData({
+      maintainAspectRatio: false,
+      responsive: false,
+      labels: ["Amount Invested", "Wealth Gain"],
+      datasets: [
+        {
+          data: [investment_amount, total],
+          backgroundColor: chartColors,
+          hoverBackgroundColor: chartColors
+        }
+      ]
+    });
   };
 
   const options = {
@@ -48,19 +61,6 @@ function App() {
         borderWidth: 0
       }
     }
-  };
-
-  const chartData = {
-    maintainAspectRatio: false,
-    responsive: false,
-    labels: ["Amount Invested", "Wealth Gain"],
-    datasets: [
-      {
-        data: [100000, 300000],
-        backgroundColor: chartColors,
-        hoverBackgroundColor: chartColors
-      }
-    ]
   };
 
   return (
