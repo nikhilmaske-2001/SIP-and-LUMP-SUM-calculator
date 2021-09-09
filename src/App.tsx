@@ -3,6 +3,7 @@ import { FormControl, InputLabel, Input, Card, CardContent, Box, Button, Typogra
 import { useStyles } from "./styles";
 import { Doughnut } from "react-chartjs-2";
 import { chartColors } from './colors/chartColors';
+import SideGraph from './components/SideGraph';
 
 const initialState = {
   monthly_investment: "",
@@ -101,9 +102,7 @@ function App() {
       </Card>
       {
         openChart &&
-        < Card >
-          This is chart
-        </Card>
+        <SideGraph />
       }
     </div >
   );
