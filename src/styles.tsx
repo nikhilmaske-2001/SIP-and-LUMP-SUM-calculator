@@ -4,7 +4,7 @@ export const useStyles = makeStyles(theme => ({
     Container: {
         display: "flex",
         justifyContent: "center",
-        paddingTop: 65,
+        paddingTop: 30,
     },
     root: {
         minWidth: 350,
@@ -29,5 +29,10 @@ export const useStyles = makeStyles(theme => ({
         maxWidth: 200,
         margin: 20,
         marginLeft: 70
+    },
+    graph_button: {
+        color: "blue",
+        margin: 5,
+        marginLeft: 100,
     }
 }));

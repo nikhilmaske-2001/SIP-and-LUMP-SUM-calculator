@@ -17,6 +17,7 @@ function App() {
   const [totalAmount, setTotalAmount] = useState(0);
   const [investedAmount, setInvestedAmount] = useState(0);
   const [chartData, setChartData] = useState({});
+  const [openChart, setOpenChart] = useState(false);
 
   const calculateTotal = () => {
     var monthly_investment: number = +formData.monthly_investment;
@@ -51,6 +52,10 @@ function App() {
       ]
     });
   };
+
+  const open_chart = () => {
+    setOpenChart(!openChart);
+  }
 
   const options = {
     legend: {
@@ -91,9 +96,15 @@ function App() {
         <Card className={classes.summery}>
           <Typography> Summery </Typography>
         </Card>
-
+        <Button className={classes.graph_button} onClick={open_chart}>Show in Graph</Button>
         <Doughnut className={classes.piechart} data={chartData} options={options} />
       </Card>
+      {
+        openChart &&
+        < Card >
+          This is chart
+        </Card>
+      }
     </div >
   );
 }
