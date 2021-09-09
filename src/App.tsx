@@ -18,6 +18,7 @@ function App() {
   const [totalAmount, setTotalAmount] = useState(0);
   const [investedAmount, setInvestedAmount] = useState(0);
   const [chartData, setChartData] = useState({});
+  const [graphData, setGraphData] = useState({});
   const [openChart, setOpenChart] = useState(false);
 
   const calculateTotal = () => {
@@ -26,6 +27,8 @@ function App() {
     var expected_return: number = +formData.return;
     var investment_amount: number = 0;
     var total: number = 0;
+    var invested_graph = [];
+    var expected_graph = [];
 
     for (var year = 1; year <= period; year++) {
       for (var month = 1; month <= 12; month++) {
@@ -34,6 +37,8 @@ function App() {
       }
       var one_year_return = Math.round((total / 100) * expected_return);
       total = Math.round(total + one_year_return);
+      invested_graph.push(investment_amount);
+      expected_graph.push(total);
     }
     investment_amount = Math.round(investment_amount);
     total = Math.round(total);
@@ -52,10 +57,19 @@ function App() {
         }
       ]
     });
+    setGraphData({
+      datasets: [
+        {
+          investedGraphData: invested_graph,
+          expectedGraphData: expected_graph,
+        }
+      ]
+    })
   };
 
   const open_chart = () => {
     setOpenChart(!openChart);
+    console.log(graphData)
   }
 
   const options = {
