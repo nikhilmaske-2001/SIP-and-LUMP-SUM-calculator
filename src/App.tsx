@@ -58,13 +58,9 @@ function App() {
       ]
     });
     setGraphData({
-      datasets: [
-        {
-          investedGraphData: invested_graph,
-          expectedGraphData: expected_graph,
-        }
-      ]
-    })
+      investedGraphData: invested_graph,
+      expectedGraphData: expected_graph,
+    });
   };
 
   const open_chart = () => {

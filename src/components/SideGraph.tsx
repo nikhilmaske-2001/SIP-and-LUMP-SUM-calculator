@@ -5,45 +5,105 @@ import { useStyles } from './styles';
 
 const data = [
     {
-        "name": "Page A",
-        "uv": 4000,
-        "pv": 2400,
+        "name": "2021",
+        "invested": 4000,
+        "componded": 2400,
         "amt": 2400
     },
     {
-        "name": "Page B",
-        "uv": 3000,
-        "pv": 1398,
+        "name": "2022",
+        "invested": 3000,
+        "componded": 1398,
         "amt": 2210
     },
     {
-        "name": "Page C",
-        "uv": 2000,
-        "pv": 9800,
+        "name": "2023",
+        "invested": 2000,
+        "componded": 9800,
         "amt": 2290
     },
     {
-        "name": "Page D",
-        "uv": 2780,
-        "pv": 3908,
+        "name": "2024",
+        "invested": 2780,
+        "componded": 3908,
         "amt": 2000
     },
     {
-        "name": "Page E",
-        "uv": 1890,
-        "pv": 4800,
+        "name": "2025",
+        "invested": 1890,
+        "componded": 4800,
         "amt": 2181
     },
     {
-        "name": "Page F",
-        "uv": 2390,
-        "pv": 3800,
+        "name": "2026",
+        "invested": 2390,
+        "componded": 3800,
         "amt": 2500
     },
     {
-        "name": "Page G",
-        "uv": 3490,
-        "pv": 4300,
+        "name": "2027",
+        "invested": 3490,
+        "componded": 4300,
+        "amt": 2100
+    },
+    {
+        "name": "2028",
+        "invested": 3490,
+        "componded": 4300,
+        "amt": 2100
+    },
+    {
+        "name": "2029",
+        "invested": 3490,
+        "componded": 4300,
+        "amt": 2100
+    },
+    {
+        "name": "2030",
+        "invested": 3490,
+        "componded": 4300,
+        "amt": 2100
+    },
+    {
+        "name": "2031",
+        "invested": 3490,
+        "componded": 4300,
+        "amt": 2100
+    },
+    {
+        "name": "2032",
+        "invested": 3490,
+        "componded": 4300,
+        "amt": 2100
+    },
+    {
+        "name": "2033",
+        "invested": 3490,
+        "componded": 4300,
+        "amt": 2100
+    },
+    {
+        "name": "2034",
+        "invested": 3490,
+        "componded": 4300,
+        "amt": 2100
+    },
+    {
+        "name": "2035",
+        "invested": 3490,
+        "componded": 4300,
+        "amt": 2100
+    },
+    {
+        "name": "2036",
+        "invested": 3490,
+        "componded": 4300,
+        "amt": 2100
+    },
+    {
+        "name": "2037",
+        "invested": 3490,
+        "componded": 4300,
         "amt": 2100
     }
 ]
@@ -61,8 +121,8 @@ function SideGraph() {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-                    <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                    <Line type="monotone" dataKey="invested" stroke="#8884d8" />
+                    <Line type="monotone" dataKey="componded" stroke="#82ca9d" />
                 </LineChart>
             </div>
         </Card>
