@@ -18,7 +18,8 @@ function App() {
   const [totalAmount, setTotalAmount] = useState(0);
   const [investedAmount, setInvestedAmount] = useState(0);
   const [chartData, setChartData] = useState({});
-  const [graphData, setGraphData] = useState({});
+  const [investedData, setinvestedData] = useState({});
+  const [compondedData, setcompoundedData] = useState({});
   const [openChart, setOpenChart] = useState(false);
 
   const calculateTotal = () => {
@@ -57,15 +58,12 @@ function App() {
         }
       ]
     });
-    setGraphData({
-      investedGraphData: invested_graph,
-      expectedGraphData: expected_graph,
-    });
+    setinvestedData(invested_graph);
+    setcompoundedData(expected_graph);
   };
 
   const open_chart = () => {
     setOpenChart(!openChart);
-    console.log(graphData)
   }
 
   const options = {
@@ -112,7 +110,8 @@ function App() {
       </Card>
       {
         openChart &&
-        <SideGraph />
+        <SideGraph investedData={investedData}
+          compondedData={compondedData} />
       }
     </div >
   );

@@ -108,21 +108,21 @@ const data = [
     }
 ]
 
-function SideGraph() {
+function SideGraph({ investedGraphData, expectedGraphData }: any) {
     const classes = useStyles();
-    // const invested_graph = invested;
-    // const componded_graph = componded;
-    // const period = investedGraphData.length;
+    const invested_graph = investedGraphData;
+    const componded_graph = expectedGraphData;
+    const period = investedGraphData.length;
 
-    // for (var year = 1; year <= period; year++) {
-    //     var obj = {
-    //         "name": year.toString(),
-    //         "invested": invested_graph[year],
-    //         "componded": componded_graph[year],
-    //         "amt": 2020,
-    //     };
-    //     data.push(obj);
-    // };
+    for (var year = 1; year <= period; year++) {
+        var obj = {
+            "name": year.toString(),
+            "invested": invested_graph[year],
+            "componded": componded_graph[year],
+            "amt": 2020,
+        };
+        data.push(obj);
+    };
 
     return (
         <Card >
