@@ -3,23 +3,25 @@ import { Card } from '@material-ui/core';
 import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
 import { useStyles } from './styles';
 
-const data = [{}];
 
 function SideGraph({ investedData, compondedData }: any) {
     const classes = useStyles();
     const invested_graph = investedData;
     const componded_graph = compondedData;
     const period = investedData.length;
+    const data = [{}];
 
     for (var year = 1; year <= period; year++) {
         var obj = {
-            "name": year.toString(),
+            "name": (2021 + year).toString(),
             "invested": invested_graph[year],
             "componded": componded_graph[year],
-            "amt": 2000 + year,
+            "amt": year,
         };
         data.push(obj);
     };
+
+    console.log(data);
 
     return (
         <Card >
