@@ -110,6 +110,19 @@ const data = [
 
 function SideGraph() {
     const classes = useStyles();
+    // const invested_graph = invested;
+    // const componded_graph = componded;
+    // const period = investedGraphData.length;
+
+    // for (var year = 1; year <= period; year++) {
+    //     var obj = {
+    //         "name": year.toString(),
+    //         "invested": invested_graph[year],
+    //         "componded": componded_graph[year],
+    //         "amt": 2020,
+    //     };
+    //     data.push(obj);
+    // };
 
     return (
         <Card >
