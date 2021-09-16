@@ -102,9 +102,6 @@ function App() {
           <Box className={classes.Total}>Total: ₹ {totalAmount} <br />
             Invested Amount : ₹ {investedAmount}</Box>
         </CardContent>
-        <Card className={classes.summery}>
-          <Typography> Summery </Typography>
-        </Card>
         <Button className={classes.graph_button} onClick={open_chart}>Show in Graph</Button>
         <Doughnut className={classes.piechart} data={chartData} options={options} />
       </Card>

@@ -26,7 +26,7 @@ function SideGraph({ investedData, compondedData }: any) {
     return (
         <Card >
             <div className={classes.graph}>
-                <LineChart width={730} height={250} data={data}
+                <LineChart width={730} height={450} data={data}
                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
@@ -37,6 +37,9 @@ function SideGraph({ investedData, compondedData }: any) {
                     <Line type="monotone" dataKey="componded" stroke="#82ca9d" />
                 </LineChart>
             </div>
+            <Card className={classes.summery}>
+
+            </Card>
         </Card>
     )
 }

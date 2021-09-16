@@ -20,10 +20,6 @@ export const useStyles = makeStyles(theme => ({
     Total: {
         marginTop: 40,
     },
-    summery: {
-        display: "flex",
-        justifyContent: "center",
-    },
     piechart: {
         maxHeight: 200,
         maxWidth: 200,
