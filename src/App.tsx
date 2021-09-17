@@ -88,10 +88,20 @@ function App() {
 
   const openSIP = () => {
     setPage(1);
+    setFormData(initialState);
+    setFormDataLump(initialStateLump);
+    setChartData({});
+    setTotalAmount(0);
+    setInvestedAmount(0);
   }
 
   const openLump = () => {
     setPage(0);
+    setFormData(initialState);
+    setFormDataLump(initialStateLump);
+    setChartData({});
+    setTotalAmount(0);
+    setInvestedAmount(0);
   }
 
   // Lump
@@ -133,17 +143,17 @@ function App() {
           <CardContent>
             <FormControl className={classes.Box}>
               <InputLabel htmlFor="my-input">Monthly Investment Amount (Rs)</InputLabel>
-              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormData({ ...formData, monthly_investment: e.target.value })} />
+              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormData({ ...formData, monthly_investment: e.target.value })} value={formData.monthly_investment} />
             </FormControl>
 
             <FormControl className={classes.Box}>
               <InputLabel htmlFor="my-input">Investment Period (years)</InputLabel>
-              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormData({ ...formData, period: e.target.value })} />
+              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormData({ ...formData, period: e.target.value })} value={formData.period} />
             </FormControl>
 
             <FormControl className={classes.Box}>
               <InputLabel htmlFor="my-input">Expected Return (%)</InputLabel>
-              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormData({ ...formData, return: e.target.value })} />
+              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormData({ ...formData, return: e.target.value })} value={formData.return} />
             </FormControl>
 
             <Button className={classes.Button} variant="outlined" color="primary" fullWidth
@@ -155,17 +165,17 @@ function App() {
           <CardContent>
             <FormControl className={classes.Box}>
               <InputLabel htmlFor="my-input">Investment Amount (Rs)</InputLabel>
-              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormDataLump({ ...formDataLump, investment: e.target.value })} />
+              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormDataLump({ ...formDataLump, investment: e.target.value })} value={formDataLump.investment} />
             </FormControl>
 
             <FormControl className={classes.Box}>
               <InputLabel htmlFor="my-input">Investment Period (years)</InputLabel>
-              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormDataLump({ ...formDataLump, period: e.target.value })} />
+              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormDataLump({ ...formDataLump, period: e.target.value })} value={formDataLump.period} />
             </FormControl>
 
             <FormControl className={classes.Box}>
               <InputLabel htmlFor="my-input">Expected Return (%)</InputLabel>
-              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormDataLump({ ...formDataLump, return: e.target.value })} />
+              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormDataLump({ ...formDataLump, return: e.target.value })} value={formDataLump.return} />
             </FormControl>
 
             <Button className={classes.Button} variant="outlined" color="primary" fullWidth
