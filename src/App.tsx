@@ -119,6 +119,8 @@ function App() {
 
     console.log(expected_graph);
     var wealthGain = (investment) - initialInvestment;
+    setInvestedAmount(initialInvestment);
+    setTotalAmount(investment);
     setChartData({
       maintainAspectRatio: false,
       responsive: false,
