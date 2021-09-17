@@ -11,16 +11,24 @@ const initialState = {
   return: "",
 }
 
+const initialStateLump = {
+  investment: "",
+  period: "",
+  return: "",
+}
+
 function App() {
   const classes = useStyles();
 
   const [formData, setFormData] = useState(initialState);
+  const [formDataLump, setFormDataLump] = useState(initialStateLump);
   const [totalAmount, setTotalAmount] = useState(0);
   const [investedAmount, setInvestedAmount] = useState(0);
   const [chartData, setChartData] = useState({});
   const [investedData, setinvestedData] = useState({});
   const [compondedData, setcompoundedData] = useState({});
   const [openChart, setOpenChart] = useState(false);
+  const [page, setPage] = useState(1);
 
   const calculateTotal = () => {
     var monthly_investment: number = +formData.monthly_investment;
@@ -78,30 +86,95 @@ function App() {
     }
   };
 
+  const openSIP = () => {
+    setPage(1);
+  }
+
+  const openLump = () => {
+    setPage(0);
+  }
+
+  // Lump
+  const calculateTotalLump = () => {
+    var investment: number = +formDataLump.investment;
+    var period: number = +formDataLump.period;
+    var expected_return: number = +formDataLump.return;
+    var expected_graph = [];
+    var initialInvestment: number = +formDataLump.investment;
+
+    for (var year = 1; year <= period; year++) {
+      investment = investment + Math.round((investment / 100) * expected_return);
+      expected_graph.push(investment);
+    }
+
+    console.log(expected_graph);
+    var wealthGain = (investment) - initialInvestment;
+    setChartData({
+      maintainAspectRatio: false,
+      responsive: false,
+      labels: ["Amount Invested", "Wealth Gain"],
+      datasets: [
+        {
+          data: [initialInvestment, wealthGain],
+          backgroundColor: chartColors,
+          hoverBackgroundColor: chartColors
+        }
+      ]
+    });
+  }
   return (
     <div className={classes.Container}>
       <Card className={classes.root} variant="outlined">
-        <CardContent>
-          <FormControl className={classes.Box}>
-            <InputLabel htmlFor="my-input">Monthly Investment Amount (Rs)</InputLabel>
-            <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormData({ ...formData, monthly_investment: e.target.value })} />
-          </FormControl>
+        <div className={classes.upButtons}>
+          <Button onClick={openSIP}>SIP</Button>
+          <Button onClick={openLump}>LumpSum</Button>
+        </div>
+        {page ?
+          <CardContent>
+            <FormControl className={classes.Box}>
+              <InputLabel htmlFor="my-input">Monthly Investment Amount (Rs)</InputLabel>
+              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormData({ ...formData, monthly_investment: e.target.value })} />
+            </FormControl>
 
-          <FormControl className={classes.Box}>
-            <InputLabel htmlFor="my-input">Investment Period (years)</InputLabel>
-            <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormData({ ...formData, period: e.target.value })} />
-          </FormControl>
+            <FormControl className={classes.Box}>
+              <InputLabel htmlFor="my-input">Investment Period (years)</InputLabel>
+              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormData({ ...formData, period: e.target.value })} />
+            </FormControl>
 
-          <FormControl className={classes.Box}>
-            <InputLabel htmlFor="my-input">Expected Return (%)</InputLabel>
-            <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormData({ ...formData, return: e.target.value })} />
-          </FormControl>
+            <FormControl className={classes.Box}>
+              <InputLabel htmlFor="my-input">Expected Return (%)</InputLabel>
+              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormData({ ...formData, return: e.target.value })} />
+            </FormControl>
 
-          <Button className={classes.Button} variant="outlined" color="primary" fullWidth
-            onClick={calculateTotal}> Calculate </Button>
-          <Box className={classes.Total}>Total: ₹ {totalAmount} <br />
-            Invested Amount : ₹ {investedAmount}</Box>
-        </CardContent>
+            <Button className={classes.Button} variant="outlined" color="primary" fullWidth
+              onClick={calculateTotal}> Calculate </Button>
+            <Box className={classes.Total}>Total: ₹ {totalAmount} <br />
+              Invested Amount: ₹ {investedAmount}</Box>
+          </CardContent> :
+          // LUMP
+          <CardContent>
+            <FormControl className={classes.Box}>
+              <InputLabel htmlFor="my-input">Investment Amount (Rs)</InputLabel>
+              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormDataLump({ ...formDataLump, investment: e.target.value })} />
+            </FormControl>
+
+            <FormControl className={classes.Box}>
+              <InputLabel htmlFor="my-input">Investment Period (years)</InputLabel>
+              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormDataLump({ ...formDataLump, period: e.target.value })} />
+            </FormControl>
+
+            <FormControl className={classes.Box}>
+              <InputLabel htmlFor="my-input">Expected Return (%)</InputLabel>
+              <Input id="my-input" aria-describedby="my-helper-text" onChange={(e) => setFormDataLump({ ...formDataLump, return: e.target.value })} />
+            </FormControl>
+
+            <Button className={classes.Button} variant="outlined" color="primary" fullWidth
+              onClick={calculateTotalLump}> Calculate </Button>
+            <Box className={classes.Total}>Total: ₹ {totalAmount} <br />
+              Invested Amount: ₹ {investedAmount}</Box>
+          </CardContent>
+        }
+
         <Button className={classes.graph_button} onClick={open_chart}>{openChart ? `HideChart` : `Show in Chart`}</Button>
         <Doughnut className={classes.piechart} data={chartData} options={options} />
       </Card>

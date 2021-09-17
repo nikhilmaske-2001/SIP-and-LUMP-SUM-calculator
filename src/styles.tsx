@@ -30,5 +30,9 @@ export const useStyles = makeStyles(theme => ({
         color: "blue",
         margin: 5,
         marginLeft: 100,
+    },
+    upButtons: {
+        width: "100%",
+        marginLeft: 70,
     }
 }));
