@@ -95,6 +95,10 @@ function App() {
     setChartData({});
     setTotalAmount(0);
     setInvestedAmount(0);
+    setinvestedData({});
+    setcompoundedData({});
+    setinvestedDataLump({});
+    setcompoundedDataLump({});
   }
 
   const openLump = () => {
@@ -104,6 +108,10 @@ function App() {
     setChartData({});
     setTotalAmount(0);
     setInvestedAmount(0);
+    setinvestedData({});
+    setcompoundedData({});
+    setinvestedDataLump({});
+    setcompoundedDataLump({});
   }
 
   // Lump
