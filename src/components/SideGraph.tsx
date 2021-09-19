@@ -22,7 +22,7 @@ function SideGraph({ investedData, compondedData }: any) {
             data.push(obj);
         };
     } else {
-        for (var year = 1; year <= period; year++) {
+        for (year = 1; year <= period; year++) {
             obj = {
                 "name": (2021 + year).toString(),
                 "invested": 0,
