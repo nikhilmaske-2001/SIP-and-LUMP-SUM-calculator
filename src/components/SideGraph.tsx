@@ -8,19 +8,30 @@ function SideGraph({ investedData, compondedData }: any) {
     const classes = useStyles();
     const invested_graph = investedData;
     const componded_graph = compondedData;
-    const period = investedData.length;
+    const period = compondedData.length;
     const data = [{}];
 
-    for (var year = 1; year <= period; year++) {
-        var obj = {
-            "name": (2021 + year).toString(),
-            "invested": invested_graph[year],
-            "componded": componded_graph[year],
-            "amt": year,
+    if (period) {
+        for (var year = 1; year <= period; year++) {
+            var obj = {
+                "name": (2021 + year).toString(),
+                "invested": invested_graph[year],
+                "componded": componded_graph[year],
+                "amt": year,
+            };
+            data.push(obj);
         };
-        data.push(obj);
-    };
-
+    } else {
+        for (var year = 1; year <= period; year++) {
+            obj = {
+                "name": (2021 + year).toString(),
+                "invested": 0,
+                "componded": componded_graph[year],
+                "amt": year,
+            };
+            data.push(obj);
+        }
+    }
     console.log(data);
 
     return (

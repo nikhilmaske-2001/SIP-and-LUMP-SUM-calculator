@@ -27,6 +27,8 @@ function App() {
   const [chartData, setChartData] = useState({});
   const [investedData, setinvestedData] = useState({});
   const [compondedData, setcompoundedData] = useState({});
+  const [investedDataLump, setinvestedDataLump] = useState({});
+  const [compoundedDataLump, setcompoundedDataLump] = useState({});
   const [openChart, setOpenChart] = useState(false);
   const [page, setPage] = useState(1);
 
@@ -111,6 +113,7 @@ function App() {
     var expected_return: number = +formDataLump.return;
     var expected_graph = [];
     var initialInvestment: number = +formDataLump.investment;
+    expected_graph.push(investment);
 
     for (var year = 1; year <= period; year++) {
       investment = investment + Math.round((investment / 100) * expected_return);
@@ -133,6 +136,7 @@ function App() {
         }
       ]
     });
+    setcompoundedDataLump(expected_graph);
   }
   return (
     <div className={classes.Container}>
@@ -163,7 +167,7 @@ function App() {
             <Box className={classes.Total}>Total: ₹ {totalAmount} <br />
               Invested Amount: ₹ {investedAmount}</Box>
           </CardContent> :
-          // LUMP
+          // LUMP SUM
           <CardContent>
             <FormControl className={classes.Box}>
               <InputLabel htmlFor="my-input">Investment Amount (Rs)</InputLabel>
@@ -191,9 +195,13 @@ function App() {
         <Doughnut className={classes.piechart} data={chartData} options={options} />
       </Card>
       {
-        openChart &&
-        <SideGraph investedData={investedData}
-          compondedData={compondedData} />
+        page ?
+          openChart &&
+          <SideGraph investedData={investedData}
+            compondedData={compondedData} />
+          :
+          openChart &&
+          <SideGraph investedData={investedDataLump} compondedData={compoundedDataLump} />
       }
     </div >
   );
